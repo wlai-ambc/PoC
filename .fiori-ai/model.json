@@ -1,0 +1,146 @@
+{
+    "namespace": "myFioriApp",
+    "entities": [
+        {
+            "name": "Users",
+            "label": "User",
+            "associations": [],
+            "labelPlural": "Users",
+            "elements": [
+                {
+                    "name": "ID",
+                    "type": "UUID",
+                    "key": true,
+                    "label": ""
+                },
+                {
+                    "name": "userId",
+                    "type": "String(50)",
+                    "label": "User Id",
+                    "additionalInfo": "Unique identifier for each user",
+                    "essentialElement": true,
+                    "semanticKey": true
+                },
+                {
+                    "name": "userName",
+                    "type": "String(100)",
+                    "label": "User Name",
+                    "additionalInfo": "Name of the user",
+                    "key": false,
+                    "essentialElement": true
+                },
+                {
+                    "name": "email",
+                    "type": "String(100)",
+                    "label": "Email",
+                    "additionalInfo": "Email address of the user",
+                    "key": false,
+                    "essentialElement": false
+                },
+                {
+                    "name": "isActive",
+                    "type": "String(50)",
+                    "label": "Is Active",
+                    "additionalInfo": "Indicates if the user is active",
+                    "key": false,
+                    "essentialElement": false,
+                    "values": [
+                        "true",
+                        "false"
+                    ],
+                    "hasFixedValuesList": true,
+                    "hasColorsOrCriticality": true,
+                    "reason": "The 'isActive' property indicates whether a user is active or not. Typically, an active user is considered a positive state, while an inactive user might be seen as negative, especially in contexts where user engagement or availability is important.",
+                    "mapping": [
+                        {
+                            "value": "true",
+                            "colorOrCriticality": "positive",
+                            "reason": "An active user is generally considered a positive state, indicating that the user is currently engaged or available."
+                        },
+                        {
+                            "value": "false",
+                            "colorOrCriticality": "negative",
+                            "reason": "An inactive user is generally considered a negative state, indicating that the user is not currently engaged or available."
+                        }
+                    ],
+                    "criticalities": [
+                        3,
+                        1
+                    ]
+                },
+                {
+                    "name": "createdDate",
+                    "type": "DateTime",
+                    "label": "Created Date",
+                    "additionalInfo": "The date when the user was created",
+                    "key": false,
+                    "essentialElement": false
+                }
+            ]
+        }
+    ],
+    "service": {
+        "name": "myFioriAppSrv",
+        "path": "srv/service.cds"
+    },
+    "applications": [
+        {
+            "name": "FioriElementApplication",
+            "pages": [
+                {
+                    "type": "ListReport",
+                    "entityType": "Users",
+                    "listReportContent": {
+                        "filters": [],
+                        "loadDataOnAppLaunch": "Auto",
+                        "tables": [
+                            {
+                                "title": "User List",
+                                "id": "userListTable",
+                                "baseEntityType": "Users",
+                                "columns": [
+                                    "userId",
+                                    "userName",
+                                    "email",
+                                    "isActive",
+                                    "createdDate"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "ObjectPage",
+                    "entityType": "Users",
+                    "objectPageContent": {
+                        "sections": [
+                            {
+                                "title": "User Details",
+                                "id": "userDetailsSection",
+                                "isTableSection": false,
+                                "fields": [
+                                    "userId",
+                                    "userName",
+                                    "email",
+                                    "isActive",
+                                    "createdDate"
+                                ]
+                            }
+                        ],
+                        "tabs": [
+                            {
+                                "id": "userDetailsTab",
+                                "title": "User Details",
+                                "subsections": [
+                                    "userDetailsSection"
+                                ]
+                            }
+                        ],
+                        "chartSections": [],
+                        "tableSectionAssociations": []
+                    }
+                }
+            ]
+        }
+    ]
+}

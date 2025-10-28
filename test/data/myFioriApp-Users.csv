@@ -1,0 +1,6 @@
+ID;userId;userName;email;isActive_code;createdDate
+3ae08829-c2b5-4471-98d3-b7bf95f2bef0;U001;Alice Johnson;alice.johnson@example.com;true;2023-01-15T09:30:00Z
+915710ef-f3c9-441a-beaf-4c78af24d850;U002;Bob Smith;bob.smith@example.com;false;2023-02-20T11:45:00Z
+83fb502e-09c4-4291-88ad-7e537f20f92c;U003;Charlie Brown;charlie.brown@example.com;true;2023-03-10T14:20:00Z
+43494d97-959a-410d-a2d7-4d7757e86b8d;U004;Diana Prince;diana.prince@example.com;true;2023-04-05T16:00:00Z
+70b977b6-c29c-4640-8321-00005dd596ce;U005;Ethan Hunt;ethan.hunt@example.com;false;2023-05-25T08:15:00Z
